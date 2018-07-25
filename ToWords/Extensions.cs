@@ -49,8 +49,36 @@ namespace ToWords
                     case 0:
                         r = string.Empty;
                         break;
-                    //case 1:
-                    //    return "one";
+                    case 1://Special cases of teens
+                        switch (o)
+                        {
+                            case 0:
+                                return "ten";
+                            case 1:
+                                return "eleven";
+                            case 2:
+                                return "twelve";
+                            case 3:
+                                r = "thir";
+                                break;
+                            case 4:
+                                r = "four";
+                                break;
+                            case 5:
+                                r = "fif";
+                                break;
+                            case 8:
+                                r = "eigh";
+                                break;
+                            case 6:
+                            case 7:
+                            case 9:
+                                r = Ones(o);
+                                break;
+                            default:
+                                throw new Exception("Unexpected number");
+                        }
+                        return r + "teen";
                     case 2:
                         r = "twenty";
                         break;
