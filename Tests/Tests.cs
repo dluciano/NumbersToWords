@@ -73,5 +73,29 @@ namespace UnitTests
         [InlineData(99, "ninety-nine")]
         public void Tens(int e, string name) =>
             e.ToWords().ShouldBe(name);
+
+        [Theory]
+        [InlineData(100, "one hundred")]
+        [InlineData(101, "one hundred and one")]
+        [InlineData(109, "one hundred and nine")]
+        [InlineData(110, "one hundred and ten")]
+        [InlineData(119, "one hundred and nineteen")]
+        [InlineData(120, "one hundred and twenty")]
+        [InlineData(129, "one hundred and twenty-nine")]
+        [InlineData(190, "one hundred and ninety")]
+        [InlineData(199, "one hundred and ninety-nine")]
+        [InlineData(200, "two hundred")]
+        [InlineData(201, "two hundred and one")]
+        [InlineData(209, "two hundred and nine")]
+        [InlineData(210, "two hundred and ten")]
+        [InlineData(219, "two hundred and nineteen")]
+        [InlineData(220, "two hundred and twenty")]
+        [InlineData(229, "two hundred and twenty-nine")]
+        [InlineData(290, "two hundred and ninety")]
+        [InlineData(299, "two hundred and ninety-nine")]
+        [InlineData(900, "nine hundred")]
+        [InlineData(999, "nine hundred and ninety-nine")]
+        public void Hundreds(int e, string name) =>
+            e.ToWords().ShouldBe(name);
     }
 }

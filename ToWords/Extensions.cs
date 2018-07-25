@@ -7,10 +7,11 @@ namespace ToWords
 
         public static string ToWords(this int val)
         {
-            var ones = val % 10;
-            int tens = val / 10;
+            var hundreds = val / 100;
+            int tens = (val - (hundreds * 100)) / 10;
+            var ones = (val - (hundreds * 100)) % 10;
 
-            return Tens(tens, ones);
+            return Hundreds(hundreds, tens, ones);
 
             string Ones(int n)
             {
@@ -37,7 +38,7 @@ namespace ToWords
                     case 9:
                         return "nine";
                     default:
-                        return "Not defined";
+                        throw new Exception("Unexpected ones number");
                 }
             }
 
@@ -76,7 +77,7 @@ namespace ToWords
                                 r = Ones(o);
                                 break;
                             default:
-                                throw new Exception("Unexpected number");
+                                throw new Exception("Unexpected teen number");
                         }
                         return r + "teen";
                     case 2:
@@ -104,11 +105,19 @@ namespace ToWords
                         r = "ninety";
                         break;
                     default:
-                        throw new NotImplementedException();
+                        throw new Exception("Unexpected ten number");
                 }
                 return r +
                     (o == 0 || t == 0 ? String.Empty : separator.ToString()) +
                     (t == 0 ? Ones(o) : o == 0 ? String.Empty : Ones(o));
+            }
+
+            string Hundreds(int h, int t, int o, string hundredsSeparator = " and ", char tenSeparator = '-')
+            {
+                if (h == 0)
+                    return Tens(t, o, tenSeparator);
+                return Ones(h) + " hundred" + (t == 0 && o == 0 ? String.Empty :
+                    hundredsSeparator + Tens(t, o, tenSeparator));
             }
         }
     }
