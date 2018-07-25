@@ -34,5 +34,30 @@ namespace UnitTests
         [InlineData(29, "twenty-nine")]
         public void Twenties(int e, string name) =>
             e.ToWords().ShouldBe(name);
+
+        [Theory]
+        [InlineData(30, "thirty")]
+        [InlineData(31, "thirty-one")]
+        [InlineData(39, "thirty-nine")]
+        [InlineData(40, "forty")]
+        [InlineData(41, "forty-one")]
+        [InlineData(49, "forty-nine")]
+        [InlineData(50, "fifty")]
+        [InlineData(51, "fifty-one")]
+        [InlineData(59, "fifty-nine")]
+        [InlineData(60, "sixty")]
+        [InlineData(61, "sixty-one")]
+        [InlineData(69, "sixty-nine")]
+        [InlineData(70, "seventy")]
+        [InlineData(71, "seventy-one")]
+        [InlineData(79, "seventy-nine")]
+        [InlineData(80, "eighty")]
+        [InlineData(81, "eighty-one")]
+        [InlineData(89, "eighty-nine")]
+        [InlineData(90, "ninety")]
+        [InlineData(91, "ninety-one")]
+        [InlineData(99, "ninety-nine")]
+        public void Tens(int e, string name) =>
+            e.ToWords().ShouldBe(name);
     }
 }

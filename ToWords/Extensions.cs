@@ -54,20 +54,27 @@ namespace ToWords
                     case 2:
                         r = "twenty";
                         break;
-                    //case 3:
-                    //    return "three";
-                    //case 4:
-                    //    return "four";
-                    //case 5:
-                    //    return "five";
-                    //case 6:
-                    //    return "six";
-                    //case 7:
-                    //    return "seven";
-                    //case 8:
-                    //    return "eight";
-                    //case 9:
-                    //    return "nine";
+                    case 3:
+                        r = "thirty";
+                        break;
+                    case 4:
+                        r = "forty";
+                        break;
+                    case 5:
+                        r = "fifty";
+                        break;
+                    case 6:
+                        r = "sixty";
+                        break;
+                    case 7:
+                        r = "seventy";
+                        break;
+                    case 8:
+                        r = "eighty";
+                        break;
+                    case 9:
+                        r = "ninety";
+                        break;
                     default:
                         throw new NotImplementedException();
                 }
